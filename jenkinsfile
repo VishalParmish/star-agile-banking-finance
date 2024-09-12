@@ -10,7 +10,7 @@ pipeline {
         stage('Build') {
             steps {
                 // Get some code from a GitHub repository
-                git 'https://github.com/rohinicbabu/star-agile-banking-finance.git'
+                git 'https://github.com/VishalParmish/star-agile-banking-finance'
 
                 // Run Maven on a Unix agent.
                 sh "mvn -Dmaven.test.failure.ignore=true clean package"
@@ -24,7 +24,7 @@ pipeline {
             }
        stage('Create Docker Image') {
            steps {
-               sh 'docker build -t imvishaltushar/banking:demo01 .'
+               sh 'docker build -t imvishaltushar/banking:latest .'
                     }
                 }
        stage('Docker-Login') {
@@ -36,7 +36,7 @@ pipeline {
                 }
        stage('Push-Image') {
            steps {
-               sh 'docker push imvishaltushar/banking-demo:1.0'
+               sh 'docker push imvishaltushar/banking:latest'
                      }
                 }
        stage('Config & Deployment') {
