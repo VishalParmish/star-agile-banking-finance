@@ -24,7 +24,7 @@ pipeline {
             }
        stage('Create Docker Image') {
            steps {
-               sh 'docker build -t imvishaltushar/banking:latest .'
+               sh 'docker build -t imvishaltushar/banking_project:latest .'
                     }
                 }
        stage('Docker-Login') {
@@ -36,7 +36,7 @@ pipeline {
                 }
        stage('Push-Image') {
            steps {
-               sh 'docker push imvishaltushar/banking:latest'
+               sh 'docker push imvishaltushar/banking_project:latest'
                      }
                 }
        stage('Config & Deployment') {
